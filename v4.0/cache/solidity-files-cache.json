@@ -2290,48 +2290,6 @@
         "IERC20Metadata"
       ]
     },
-    "/Users/dineshpabbati/Desktop/DutchAuction/v4.0/contracts/UniqToken.sol": {
-      "lastModificationDate": 1687019656016,
-      "contentHash": "ee7497a0d0fe276c152972b4ea6a0e6f",
-      "sourceName": "contracts/UniqToken.sol",
-      "solcConfig": {
-        "version": "0.8.17",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          },
-          "metadata": {
-            "useLiteralContent": false
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/token/ERC20/ERC20.sol",
-        "@openzeppelin/contracts/access/Ownable.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.7"
-      ],
-      "artifacts": [
-        "MyToken"
-      ]
-    },
     "/Users/dineshpabbati/Desktop/DutchAuction/v4.0/contracts/MyNFT.sol": {
       "lastModificationDate": 1687019444364,
       "contentHash": "640de35dfc6a5bb5d949c76035af098b",
@@ -2373,6 +2331,48 @@
       ],
       "artifacts": [
         "MyNFT"
+      ]
+    },
+    "/Users/dineshpabbati/Desktop/DutchAuction/v4.0/contracts/MyToken.sol": {
+      "lastModificationDate": 1687019735209,
+      "contentHash": "0ddd446c6d4183a5dc4cf9c890123f12",
+      "sourceName": "contracts/MyToken.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": false
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        "@openzeppelin/contracts/access/Ownable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.7"
+      ],
+      "artifacts": [
+        "MyToken"
       ]
     }
   }

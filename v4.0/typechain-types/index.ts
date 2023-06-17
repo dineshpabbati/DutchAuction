@@ -44,6 +44,8 @@ export type { IERC165 } from "./@openzeppelin/contracts/utils/introspection/IERC
 export { IERC165__factory } from "./factories/@openzeppelin/contracts/utils/introspection/IERC165__factory";
 export type { MyNFT } from "./contracts/MyNFT";
 export { MyNFT__factory } from "./factories/contracts/MyNFT__factory";
+export type { MyToken } from "./contracts/MyToken";
+export { MyToken__factory } from "./factories/contracts/MyToken__factory";
 export type { IMyNFT } from "./contracts/NFTDutchAuction_ERC20BidsUpgradeable.sol/IMyNFT";
 export { IMyNFT__factory } from "./factories/contracts/NFTDutchAuction_ERC20BidsUpgradeable.sol/IMyNFT__factory";
 export type { IMyToken } from "./contracts/NFTDutchAuction_ERC20BidsUpgradeable.sol/IMyToken";
@@ -56,7 +58,5 @@ export type { NFTDutchAuction_ERC20BidsUpgradeable } from "./contracts/NFTDutchA
 export { NFTDutchAuction_ERC20BidsUpgradeable__factory } from "./factories/contracts/NFTDutchAuction_ERC20BidsUpgradeable.sol/NFTDutchAuction_ERC20BidsUpgradeable__factory";
 export type { UniqNFT } from "./contracts/UniqNFT";
 export { UniqNFT__factory } from "./factories/contracts/UniqNFT__factory";
-export type { MyToken } from "./contracts/UniqToken.sol/MyToken";
-export { MyToken__factory } from "./factories/contracts/UniqToken.sol/MyToken__factory";
-export type { UniqToken } from "./contracts/UniqToken.sol/UniqToken";
-export { UniqToken__factory } from "./factories/contracts/UniqToken.sol/UniqToken__factory";
+export type { UniqToken } from "./contracts/UniqToken";
+export { UniqToken__factory } from "./factories/contracts/UniqToken__factory";

@@ -10,7 +10,7 @@ describe("Minting & Auctioning NFT with ERC20", function () {
 
        
         const providers = ethers.providers;
-  const [owner, otherAccount, otherAccount2] = await ethers.getSigners(providers);
+  const [owner, otherAccount, otherAccount2] = await ethers.getSigners();
         const UniqNFTFactory = await ethers.getContractFactory("MyNFT");
         const uniqNFTFactory = await UniqNFTFactory.deploy(10);
 

@@ -112,6 +112,16 @@ describe("Minting & Auctioning NFT with ERC20", function () {
             expect(await myTokenFactory.totalSupply()).to.equal(300);
 
         });
+        it("Reverts if ether transfer to the owner fails", async function () {
+            const { myTokenFactory, owner, otherAccount } = await loadFixture(deployNFTDutchAuctionERC20BidsUpgradeableFixture);
+            console.log("Owner: ", owner);
+            const bigNum = BigInt("6000000000000000000");      
+            const testHelperFactory = await ethers.getContractFactory('test')
+              testHelper = await testHelperFactory.deploy()
+              await testHelper.deployed()   
+               await expect(testHelper.connect(otherAccount).targetTest({value: bigNum})
+            ).to.be.revertedWith("Ether transfer to donor address is failed");
+          });
 
         it("check token price", async function () {
             const {myTokenFactory} = await loadFixture(deployNFTDutchAuctionERC20BidsUpgradeableFixture);

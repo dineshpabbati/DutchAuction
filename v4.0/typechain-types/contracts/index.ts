@@ -3,7 +3,7 @@
 /* eslint-disable */
 import type * as nftDutchAuctionErc20BidsUpgradeableSol from "./NFTDutchAuction_ERC20BidsUpgradeable.sol";
 export type { nftDutchAuctionErc20BidsUpgradeableSol };
-import type * as uniqTokenSol from "./UniqToken.sol";
-export type { uniqTokenSol };
 export type { MyNFT } from "./MyNFT";
+export type { MyToken } from "./MyToken";
 export type { UniqNFT } from "./UniqNFT";
+export type { UniqToken } from "./UniqToken";

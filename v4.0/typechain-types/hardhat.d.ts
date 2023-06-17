@@ -89,6 +89,10 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.MyNFT__factory>;
     getContractFactory(
+      name: "MyToken",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.MyToken__factory>;
+    getContractFactory(
       name: "IMyNFT",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IMyNFT__factory>;
@@ -112,10 +116,6 @@ declare module "hardhat/types/runtime" {
       name: "UniqNFT",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.UniqNFT__factory>;
-    getContractFactory(
-      name: "MyToken",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.MyToken__factory>;
     getContractFactory(
       name: "UniqToken",
       signerOrOptions?: ethers.Signer | FactoryOptions
@@ -217,6 +217,11 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.MyNFT>;
     getContractAt(
+      name: "MyToken",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.MyToken>;
+    getContractAt(
       name: "IMyNFT",
       address: string,
       signer?: ethers.Signer
@@ -246,11 +251,6 @@ declare module "hardhat/types/runtime" {
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.UniqNFT>;
-    getContractAt(
-      name: "MyToken",
-      address: string,
-      signer?: ethers.Signer
-    ): Promise<Contracts.MyToken>;
     getContractAt(
       name: "UniqToken",
       address: string,
