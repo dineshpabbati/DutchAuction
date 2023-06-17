@@ -32,6 +32,7 @@ describe("Minting & Auctioning NFT", function () {
       expect(await myNFTFactory.balanceOf(owner.address)).to.equal(2);
       expect(await myNFTFactory.ownerOf(2)).to.equal(owner.address);
     });
+    
 
    
       
@@ -46,7 +47,7 @@ describe("Minting & Auctioning NFT", function () {
       
     
         const currentPrice = await nftDutchAuction.getCurrentPrice();
-        expect(await nftDutchAuction.connect(otherAccount).placeBid({ value: currentPrice })).to.be.revertedWith("You already bought this product");
+        expect(await nftDutchAuction.connect(otherAccount).placeBid({ value: currentPrice })).to.be.revertedWith("Product already purchased");
       });
       
     it("Place bid on open auction as a new bidder", async function () {
@@ -69,14 +70,13 @@ describe("Minting & Auctioning NFT", function () {
       const { nftDutchAuction, owner } = await loadFixture(deployNFTDutchAuctionFixture);
       expect(await nftDutchAuction.seller()).to.equal(owner.address);
     });
-
     it("Seller can't Bid", async function () {
       const { nftDutchAuction, owner } = await loadFixture(deployNFTDutchAuctionFixture);
       await expect(nftDutchAuction.connect(owner).placeBid({ value: 200 })).to.be.revertedWith(
         "Owner can't bid"
       );
     });
-
+    
     it("Product is still available for bid", async function () {
       const { nftDutchAuction } = await loadFixture(deployNFTDutchAuctionFixture);
       expect(await nftDutchAuction.buyer()).to.equal(ethers.constants.AddressZero);
@@ -95,12 +95,13 @@ describe("Minting & Auctioning NFT", function () {
       expect(10).to.greaterThanOrEqual(currentBlock - initBlock);
     });
 
-    it("Wei is insufficient", async function () {
+    it("Wei is not sufficient", async function () {
       const { nftDutchAuction, otherAccount } = await loadFixture(deployNFTDutchAuctionFixture);
       expect(
         nftDutchAuction.connect(otherAccount).placeBid({ value: 10 })
-      ).to.be.revertedWith("WEI is insufficient");
+      ).to.be.revertedWith("WEI is not sufficient");
     });
+    
 
       
      it("Successful Bid and wallet balance checks", async function () {
@@ -121,11 +122,11 @@ describe("Minting & Auctioning NFT", function () {
     
 
 
-    it("You already bought this product", async function () {
+    it("Product already purchased", async function () {
       const { nftDutchAuction, otherAccount } = await loadFixture(deployNFTDutchAuctionFixture);
       expect(
         nftDutchAuction.connect(otherAccount).placeBid({ value: 1000 })
-      ).to.be.revertedWith("You already bought this product");
+      ).to.be.revertedWith("Product already purchased");
     });
 
     it("failure Bid as item is already sold", async function () {
@@ -153,15 +154,16 @@ describe("Minting & Auctioning NFT", function () {
         const { nftDutchAuction, otherAccount } = await loadFixture(deployNFTDutchAuctionFixture);
         expect(
           nftDutchAuction.connect(otherAccount).placeBid({ value: 9 })
-        ).to.be.revertedWith("WEI is insufficient");
+        ).to.be.revertedWith("WEI is not sufficient");
       });
+      
       it("Place bid after buying the product", async function () {
         const { nftDutchAuction, owner, otherAccount } = await loadFixture(deployNFTDutchAuctionFixture);
         await nftDutchAuction.connect(otherAccount).placeBid({ value: 1000 });
   
         await expect(
           nftDutchAuction.connect(otherAccount).placeBid({ value: 100 })
-        ).to.be.revertedWith("You already bought this product");
+        ).to.be.revertedWith("Product already purchased");
       });
     });
   });

@@ -26,38 +26,38 @@ export interface NFTDutchAuctionInterface extends utils.Interface {
   functions: {
     "auctionStatusOpen()": FunctionFragment;
     "buyer()": FunctionFragment;
-    "getBlockDifference()": FunctionFragment;
-    "getCurrentBlock()": FunctionFragment;
+    "getBlockDiff()": FunctionFragment;
+    "getCurrBlock()": FunctionFragment;
     "getCurrentPrice()": FunctionFragment;
-    "initBlock()": FunctionFragment;
     "initialPrice()": FunctionFragment;
-    "isAuctionOpen()": FunctionFragment;
-    "nftAddress()": FunctionFragment;
-    "nftId()": FunctionFragment;
+    "isAuctionClosed()": FunctionFragment;
+    "nft_Address()": FunctionFragment;
+    "nft_Id()": FunctionFragment;
     "numBlocksAuctionOpen()": FunctionFragment;
     "offerPriceDecrement()": FunctionFragment;
     "placeBid()": FunctionFragment;
     "reservePrice()": FunctionFragment;
     "seller()": FunctionFragment;
+    "startingBlock()": FunctionFragment;
   };
 
   getFunction(
     nameOrSignatureOrTopic:
       | "auctionStatusOpen"
       | "buyer"
-      | "getBlockDifference"
-      | "getCurrentBlock"
+      | "getBlockDiff"
+      | "getCurrBlock"
       | "getCurrentPrice"
-      | "initBlock"
       | "initialPrice"
-      | "isAuctionOpen"
-      | "nftAddress"
-      | "nftId"
+      | "isAuctionClosed"
+      | "nft_Address"
+      | "nft_Id"
       | "numBlocksAuctionOpen"
       | "offerPriceDecrement"
       | "placeBid"
       | "reservePrice"
       | "seller"
+      | "startingBlock"
   ): FunctionFragment;
 
   encodeFunctionData(
@@ -66,31 +66,30 @@ export interface NFTDutchAuctionInterface extends utils.Interface {
   ): string;
   encodeFunctionData(functionFragment: "buyer", values?: undefined): string;
   encodeFunctionData(
-    functionFragment: "getBlockDifference",
+    functionFragment: "getBlockDiff",
     values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: "getCurrentBlock",
+    functionFragment: "getCurrBlock",
     values?: undefined
   ): string;
   encodeFunctionData(
     functionFragment: "getCurrentPrice",
     values?: undefined
   ): string;
-  encodeFunctionData(functionFragment: "initBlock", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "initialPrice",
     values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: "isAuctionOpen",
+    functionFragment: "isAuctionClosed",
     values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: "nftAddress",
+    functionFragment: "nft_Address",
     values?: undefined
   ): string;
-  encodeFunctionData(functionFragment: "nftId", values?: undefined): string;
+  encodeFunctionData(functionFragment: "nft_Id", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "numBlocksAuctionOpen",
     values?: undefined
@@ -105,6 +104,10 @@ export interface NFTDutchAuctionInterface extends utils.Interface {
     values?: undefined
   ): string;
   encodeFunctionData(functionFragment: "seller", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "startingBlock",
+    values?: undefined
+  ): string;
 
   decodeFunctionResult(
     functionFragment: "auctionStatusOpen",
@@ -112,28 +115,30 @@ export interface NFTDutchAuctionInterface extends utils.Interface {
   ): Result;
   decodeFunctionResult(functionFragment: "buyer", data: BytesLike): Result;
   decodeFunctionResult(
-    functionFragment: "getBlockDifference",
+    functionFragment: "getBlockDiff",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "getCurrentBlock",
+    functionFragment: "getCurrBlock",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
     functionFragment: "getCurrentPrice",
     data: BytesLike
   ): Result;
-  decodeFunctionResult(functionFragment: "initBlock", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "initialPrice",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "isAuctionOpen",
+    functionFragment: "isAuctionClosed",
     data: BytesLike
   ): Result;
-  decodeFunctionResult(functionFragment: "nftAddress", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "nftId", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "nft_Address",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(functionFragment: "nft_Id", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "numBlocksAuctionOpen",
     data: BytesLike
@@ -148,6 +153,10 @@ export interface NFTDutchAuctionInterface extends utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "seller", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "startingBlock",
+    data: BytesLike
+  ): Result;
 
   events: {};
 }
@@ -183,21 +192,19 @@ export interface NFTDutchAuction extends BaseContract {
 
     buyer(overrides?: CallOverrides): Promise<[string]>;
 
-    getBlockDifference(overrides?: CallOverrides): Promise<[BigNumber]>;
+    getBlockDiff(overrides?: CallOverrides): Promise<[BigNumber]>;
 
-    getCurrentBlock(overrides?: CallOverrides): Promise<[BigNumber]>;
+    getCurrBlock(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     getCurrentPrice(overrides?: CallOverrides): Promise<[BigNumber]>;
 
-    initBlock(overrides?: CallOverrides): Promise<[BigNumber]>;
-
     initialPrice(overrides?: CallOverrides): Promise<[BigNumber]>;
 
-    isAuctionOpen(overrides?: CallOverrides): Promise<[boolean]>;
+    isAuctionClosed(overrides?: CallOverrides): Promise<[boolean]>;
 
-    nftAddress(overrides?: CallOverrides): Promise<[string]>;
+    nft_Address(overrides?: CallOverrides): Promise<[string]>;
 
-    nftId(overrides?: CallOverrides): Promise<[BigNumber]>;
+    nft_Id(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     numBlocksAuctionOpen(overrides?: CallOverrides): Promise<[BigNumber]>;
 
@@ -210,27 +217,27 @@ export interface NFTDutchAuction extends BaseContract {
     reservePrice(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     seller(overrides?: CallOverrides): Promise<[string]>;
+
+    startingBlock(overrides?: CallOverrides): Promise<[BigNumber]>;
   };
 
   auctionStatusOpen(overrides?: CallOverrides): Promise<boolean>;
 
   buyer(overrides?: CallOverrides): Promise<string>;
 
-  getBlockDifference(overrides?: CallOverrides): Promise<BigNumber>;
+  getBlockDiff(overrides?: CallOverrides): Promise<BigNumber>;
 
-  getCurrentBlock(overrides?: CallOverrides): Promise<BigNumber>;
+  getCurrBlock(overrides?: CallOverrides): Promise<BigNumber>;
 
   getCurrentPrice(overrides?: CallOverrides): Promise<BigNumber>;
 
-  initBlock(overrides?: CallOverrides): Promise<BigNumber>;
-
   initialPrice(overrides?: CallOverrides): Promise<BigNumber>;
 
-  isAuctionOpen(overrides?: CallOverrides): Promise<boolean>;
+  isAuctionClosed(overrides?: CallOverrides): Promise<boolean>;
 
-  nftAddress(overrides?: CallOverrides): Promise<string>;
+  nft_Address(overrides?: CallOverrides): Promise<string>;
 
-  nftId(overrides?: CallOverrides): Promise<BigNumber>;
+  nft_Id(overrides?: CallOverrides): Promise<BigNumber>;
 
   numBlocksAuctionOpen(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -244,26 +251,26 @@ export interface NFTDutchAuction extends BaseContract {
 
   seller(overrides?: CallOverrides): Promise<string>;
 
+  startingBlock(overrides?: CallOverrides): Promise<BigNumber>;
+
   callStatic: {
     auctionStatusOpen(overrides?: CallOverrides): Promise<boolean>;
 
     buyer(overrides?: CallOverrides): Promise<string>;
 
-    getBlockDifference(overrides?: CallOverrides): Promise<BigNumber>;
+    getBlockDiff(overrides?: CallOverrides): Promise<BigNumber>;
 
-    getCurrentBlock(overrides?: CallOverrides): Promise<BigNumber>;
+    getCurrBlock(overrides?: CallOverrides): Promise<BigNumber>;
 
     getCurrentPrice(overrides?: CallOverrides): Promise<BigNumber>;
 
-    initBlock(overrides?: CallOverrides): Promise<BigNumber>;
-
     initialPrice(overrides?: CallOverrides): Promise<BigNumber>;
 
-    isAuctionOpen(overrides?: CallOverrides): Promise<boolean>;
+    isAuctionClosed(overrides?: CallOverrides): Promise<boolean>;
 
-    nftAddress(overrides?: CallOverrides): Promise<string>;
+    nft_Address(overrides?: CallOverrides): Promise<string>;
 
-    nftId(overrides?: CallOverrides): Promise<BigNumber>;
+    nft_Id(overrides?: CallOverrides): Promise<BigNumber>;
 
     numBlocksAuctionOpen(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -274,6 +281,8 @@ export interface NFTDutchAuction extends BaseContract {
     reservePrice(overrides?: CallOverrides): Promise<BigNumber>;
 
     seller(overrides?: CallOverrides): Promise<string>;
+
+    startingBlock(overrides?: CallOverrides): Promise<BigNumber>;
   };
 
   filters: {};
@@ -283,21 +292,19 @@ export interface NFTDutchAuction extends BaseContract {
 
     buyer(overrides?: CallOverrides): Promise<BigNumber>;
 
-    getBlockDifference(overrides?: CallOverrides): Promise<BigNumber>;
+    getBlockDiff(overrides?: CallOverrides): Promise<BigNumber>;
 
-    getCurrentBlock(overrides?: CallOverrides): Promise<BigNumber>;
+    getCurrBlock(overrides?: CallOverrides): Promise<BigNumber>;
 
     getCurrentPrice(overrides?: CallOverrides): Promise<BigNumber>;
 
-    initBlock(overrides?: CallOverrides): Promise<BigNumber>;
-
     initialPrice(overrides?: CallOverrides): Promise<BigNumber>;
 
-    isAuctionOpen(overrides?: CallOverrides): Promise<BigNumber>;
+    isAuctionClosed(overrides?: CallOverrides): Promise<BigNumber>;
 
-    nftAddress(overrides?: CallOverrides): Promise<BigNumber>;
+    nft_Address(overrides?: CallOverrides): Promise<BigNumber>;
 
-    nftId(overrides?: CallOverrides): Promise<BigNumber>;
+    nft_Id(overrides?: CallOverrides): Promise<BigNumber>;
 
     numBlocksAuctionOpen(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -310,6 +317,8 @@ export interface NFTDutchAuction extends BaseContract {
     reservePrice(overrides?: CallOverrides): Promise<BigNumber>;
 
     seller(overrides?: CallOverrides): Promise<BigNumber>;
+
+    startingBlock(overrides?: CallOverrides): Promise<BigNumber>;
   };
 
   populateTransaction: {
@@ -317,23 +326,19 @@ export interface NFTDutchAuction extends BaseContract {
 
     buyer(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    getBlockDifference(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    getBlockDiff(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    getCurrentBlock(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    getCurrBlock(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     getCurrentPrice(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    initBlock(overrides?: CallOverrides): Promise<PopulatedTransaction>;
-
     initialPrice(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    isAuctionOpen(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    isAuctionClosed(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    nftAddress(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    nft_Address(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    nftId(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    nft_Id(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     numBlocksAuctionOpen(
       overrides?: CallOverrides
@@ -350,5 +355,7 @@ export interface NFTDutchAuction extends BaseContract {
     reservePrice(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     seller(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    startingBlock(overrides?: CallOverrides): Promise<PopulatedTransaction>;
   };
 }

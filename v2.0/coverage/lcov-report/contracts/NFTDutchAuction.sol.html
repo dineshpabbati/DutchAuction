@@ -20,14 +20,14 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">95.45% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>21/22</span>
+        <span class='fraction'>28/28</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">72.22% </span>
+        <span class="strong">70% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>13/18</span>
+        <span class='fraction'>14/20</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>8/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">96.97% </span>
+        <span class="strong">97.56% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>32/33</span>
+        <span class='fraction'>40/41</span>
       </div>
     </div>
   </div>
@@ -144,10 +144,18 @@
 99
 100
 101
-102</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -197,18 +205,26 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">15×</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">15×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">24×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">23×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -219,7 +235,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7×</span>
 <span class="cline-any cline-yes">7×</span>
 <span class="cline-any cline-yes">6×</span>
@@ -241,7 +258,12 @@
 <span class="cline-any cline-yes">4×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -256,17 +278,14 @@ interface IMyNFT {
 }
 &nbsp;
 contract NFTDutchAuction {
-    uint256 public nftId;
-    IMyNFT public nftAddress;
-&nbsp;
+    uint256 public nft_Id;
+    IMyNFT public nft_Address;
     uint256 public reservePrice;
     uint256 public numBlocksAuctionOpen;
     uint256 public offerPriceDecrement;
-&nbsp;
     address public buyer;
     address public seller;
-&nbsp;
-    uint256 public initBlock;
+    uint256 public startingBlock;
     uint256 public initialPrice;
     bool public auctionStatusOpen;
 &nbsp;
@@ -278,16 +297,16 @@ contract NFTDutchAuction {
         uint256 _offerPriceDecrement
     ) {
         seller = payable(msg.sender);
-        initBlock = block.number;
+        startingBlock = block.number;
         auctionStatusOpen = true;
 &nbsp;
-        nftId = _nftId;
-        nftAddress = IMyNFT(_nftAddress);
+        nft_Id = _nftId;
+        nft_Address = IMyNFT(_nftAddress);
 &nbsp;
         <span class="missing-if-branch" title="else path not taken" >E</span>require(
-            nftAddress.ownerOf(nftId) == seller,
-            "You don't own this NFT to sell"
-        );
+         nft_Address.ownerOf(nft_Id) == msg.sender,
+         "You don't own this NFT to sell");
+&nbsp;
 &nbsp;
         reservePrice = _reservePrice;
         numBlocksAuctionOpen = _numBlocksAuctionOpen;
@@ -296,35 +315,44 @@ contract NFTDutchAuction {
         initialPrice = initialPrice1 + reservePrice;
 &nbsp;
     }
-      function getCurrentPrice() public view returns (uint256) {
-        uint256 blockDiff = getBlockDifference();
-        <span class="missing-if-branch" title="if path not taken" >I</span>if (blockDiff &gt;= numBlocksAuctionOpen) {
-<span class="cstat-no" title="statement not covered" >            return reservePrice;</span>
-        }
-        return initialPrice - (blockDiff * offerPriceDecrement);
+    function getCurrentPrice() public view returns (uint256) {
+    uint256 blockDiff = getBlockDiff();
+    uint256 currentPrice;
+&nbsp;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (blockDiff &gt;= numBlocksAuctionOpen) {
+        currentPrice = reservePrice;
+    } else {
+        currentPrice = initialPrice - (blockDiff * offerPriceDecrement);
     }
 &nbsp;
-    function getCurrentBlock() public view returns (uint256) {
+    return currentPrice;
+}
+&nbsp;
+    function getCurrBlock() public view returns (uint256) {
         return block.number;
     }
 &nbsp;
-    function getBlockDifference() public view returns (uint256) {
-        return getCurrentBlock() - initBlock;
-    }
+  function getBlockDiff() public view returns (uint256) {
+    uint256 currentBlock = getCurrBlock();
+    uint256 startingBlock1 = startingBlock;
+    uint256 blockDiff = currentBlock &gt; startingBlock1 ? currentBlock - startingBlock1 : <span class="missing-if-branch" title="else path not taken" >E</span>0;
+    return blockDiff;
+}
 &nbsp;
 &nbsp;
     function finalizeAuction() private {
-        nftAddress.transferFrom(seller, msg.sender, nftId);
-        buyer = nftAddress.ownerOf(nftId);
+        nft_Address.transferFrom(seller, msg.sender, nft_Id);
+        buyer = nft_Address.ownerOf(nft_Id);
         auctionStatusOpen = false;
     }
 &nbsp;
     function placeBid() public payable {
-        require(isAuctionOpen(), "Auction is closed");
-        <span class="missing-if-branch" title="else path not taken" >E</span>require(msg.sender != buyer, "You already bought this product");
+        require(!isAuctionClosed(), "Auction is closed");
+&nbsp;
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(msg.sender != buyer, "Product already purchased");
         require(buyer == address(0), "Product already sold");
         require(msg.sender != seller, "Owner can't bid");
-        require(msg.value &gt;= getCurrentPrice(), "WEI is insufficient");
+        require(msg.value &gt;= getCurrentPrice(), "WEI is not sufficient");
 &nbsp;
         (bool tryToSend, ) = seller.call{ value: getCurrentPrice() }("");
         <span class="missing-if-branch" title="else path not taken" >E</span>require(tryToSend == true, "Failed to send");
@@ -341,9 +369,14 @@ contract NFTDutchAuction {
        function refundExcess(uint256 excessAmount) private {
         payable(msg.sender).transfer(excessAmount);
     }
-     function isAuctionOpen() public view returns (bool) {
-        return getBlockDifference() &lt;= numBlocksAuctionOpen;
-    }
+    
+ function isAuctionClosed() public view returns (bool) {
+    uint256 blockDiff = getBlockDiff();
+    uint256 numBlocks = numBlocksAuctionOpen;
+    bool auctionClosed = blockDiff &gt; numBlocks;
+    return auctionClosed;
+}
+&nbsp;
 &nbsp;
 }
 &nbsp;</pre></td></tr>
@@ -352,7 +385,7 @@ contract NFTDutchAuction {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Jun 15 2023 18:05:03 GMT+0530 (India Standard Time)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Jun 16 2023 22:43:13 GMT+0530 (India Standard Time)
 </div>
 </div>
 <script src="../prettify.js"></script>

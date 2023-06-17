@@ -596,8 +596,8 @@
       ]
     },
     "/Users/dineshpabbati/Desktop/DutchAuction/v2.0/contracts/NFTDutchAuction.sol": {
-      "lastModificationDate": 1686832270423,
-      "contentHash": "61682a5784f750ab40a540b239c36dcc",
+      "lastModificationDate": 1686935587858,
+      "contentHash": "ce55061a2975e27c3f750dac6212db60",
       "sourceName": "contracts/NFTDutchAuction.sol",
       "solcConfig": {
         "version": "0.8.17",
@@ -1148,8 +1148,8 @@
       ]
     },
     "/Users/dineshpabbati/Desktop/DutchAuction/v2.0/contracts/MyNFT.sol": {
-      "lastModificationDate": 1686829674040,
-      "contentHash": "48f1e7eb05d97d9247c4bd793ad25e09",
+      "lastModificationDate": 1686917962298,
+      "contentHash": "151184c7146d5f008bffc847fe4e9fc5",
       "sourceName": "contracts/MyNFT.sol",
       "solcConfig": {
         "version": "0.8.17",

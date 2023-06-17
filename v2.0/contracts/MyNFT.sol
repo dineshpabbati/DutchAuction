@@ -11,18 +11,22 @@ contract MyNFT is ERC721, Ownable {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
 
-    uint public currentSupply;
-    uint public maxSupply;
+    uint public maxLimit;
+    uint public currentCount;
 
-    constructor(uint max) ERC721("My NFT", "MNFT") {
-        maxSupply = max;
+    constructor(uint limit) ERC721("My NFT", "MNFT") {
+        maxLimit = limit;
     }
 
-    function safeMint(address to) public onlyOwner {
-        require(maxSupply > currentSupply, "Already minted max");
-        _tokenIds.increment();
-        _mint(to, _tokenIds.current());
-        currentSupply++;
-    }
+   function safeMint(address to) public onlyOwner {
+    require(maxLimit > currentCount, "Already reached the maximum limit");
+
+    uint256 newTokenId = _tokenIds.current();
+    _tokenIds.increment();
+    newTokenId = newTokenId + 1;
+
+    _mint(to, newTokenId);
+    currentCount = currentCount + 1;
+}
 
 }
